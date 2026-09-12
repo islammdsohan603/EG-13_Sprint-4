@@ -1,32 +1,21 @@
-// Word Pattern
+// 03 Find the Difference
 
-var wordPattern = function (pattern, s) {
-  const words = s.split(" ");
+var findTheDifference = function (s, t) {
+  const count = {};
 
-  if (pattern.length !== words.length) {
-    return false;
+  for (let char of s) {
+    count[char] = (count[char] || 0) + 1;
   }
 
-  const patternToWord = {};
-  const wordToPattern = {};
-
-  for (let i = 0; i < pattern.length; i++) {
-    const char = pattern[i];
-    const word = words[i];
-
-    if (patternToWord[char] && patternToWord[char] !== word) {
-      return false;
+  for (let char of t) {
+    if (!count[char]) {
+      return char;
     }
 
-    if (wordToPattern[word] && wordToPattern[word] !== char) {
-      return false;
-    }
-
-    patternToWord[char] = word;
-    wordToPattern[word] = char;
+    count[char]--;
   }
 
-  return true;
+  return "";
 };
 
-console.log(wordPattern("abba", "dog cat cat dog"));
+console.log(findTheDifference("abcd", "abcde"));

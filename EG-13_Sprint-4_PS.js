@@ -1,4 +1,4 @@
-// 04. Reverse Linked List
+// 05. Middle of the Linked List
 
 class ListNode {
   constructor(value) {
@@ -7,20 +7,16 @@ class ListNode {
   }
 }
 
-var reverseList = function (head) {
-  let prev = null;
-  let current = head;
+var middleNode = function (head) {
+  let slow = head;
+  let fast = head;
 
-  while (current !== null) {
-    let next = current.next;
-
-    current.next = prev;
-
-    prev = current;
-    current = next;
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  return prev;
+  return slow;
 };
 
 const head = new ListNode(1);
@@ -30,9 +26,9 @@ head.next.next = new ListNode(3);
 head.next.next.next = new ListNode(4);
 head.next.next.next.next = new ListNode(5);
 
-const reversedHead = reverseList(head);
+const middle = middleNode(head);
 
-let current = reversedHead;
+let current = middle;
 let result = [];
 
 while (current !== null) {

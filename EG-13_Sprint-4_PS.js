@@ -1,39 +1,25 @@
-// 05. Middle of the Linked List
+// 06. Product of Array Except Self
 
-class ListNode {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+var productExceptSelf = function (nums) {
+  const result = new Array(nums.length).fill(1);
 
-var middleNode = function (head) {
-  let slow = head;
-  let fast = head;
+  let prefix = 1;
 
-  while (fast !== null && fast.next !== null) {
-    slow = slow.next;
-    fast = fast.next.next;
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;
+    prefix *= nums[i];
   }
 
-  return slow;
+  let suffix = 1;
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= suffix;
+    suffix *= nums[i];
+  }
+
+  return result;
 };
 
-const head = new ListNode(1);
+const nums = [1, 2, 3, 4];
 
-head.next = new ListNode(2);
-head.next.next = new ListNode(3);
-head.next.next.next = new ListNode(4);
-head.next.next.next.next = new ListNode(5);
-
-const middle = middleNode(head);
-
-let current = middle;
-let result = [];
-
-while (current !== null) {
-  result.push(current.value);
-  current = current.next;
-}
-
-console.log(result);
+console.log(productExceptSelf(nums));

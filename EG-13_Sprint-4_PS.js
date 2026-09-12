@@ -1,18 +1,24 @@
-// 09. Permutation in String
+// 10. Find All Anagrams in a String
 
-var checkInclusion = function (s1, s2) {
-  for (let i = 0; i <= s2.length - s1.length; i++) {
-    const part = s2.substring(i, i + s1.length);
+var findAnagrams = function (s, p) {
+  const result = [];
 
-    if (s1.split("").sort().join("") === part.split("").sort().join("")) {
-      return true;
+  const sortedP = p.split("").sort().join("");
+
+  for (let i = 0; i <= s.length - p.length; i++) {
+    const part = s.substring(i, i + p.length);
+
+    const sortedPart = part.split("").sort().join("");
+
+    if (sortedPart === sortedP) {
+      result.push(i);
     }
   }
 
-  return false;
+  return result;
 };
 
-const s1 = "ab";
-const s2 = "eidbaooo";
+const s = "cbaebabacd";
+const p = "abc";
 
-console.log(checkInclusion(s1, s2));
+console.log(findAnagrams(s, p));

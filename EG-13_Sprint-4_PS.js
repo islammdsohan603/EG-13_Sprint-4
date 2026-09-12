@@ -1,25 +1,48 @@
-// 06. Product of Array Except Self
+// 07. Remove Nth Node From End of List
 
-var productExceptSelf = function (nums) {
-  const result = new Array(nums.length).fill(1);
+class ListNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
-  let prefix = 1;
+var removeNthFromEnd = function (head, n) {
+  const dummy = new ListNode(0);
+  dummy.next = head;
 
-  for (let i = 0; i < nums.length; i++) {
-    result[i] = prefix;
-    prefix *= nums[i];
+  let slow = dummy;
+  let fast = dummy;
+
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
   }
 
-  let suffix = 1;
-
-  for (let i = nums.length - 1; i >= 0; i--) {
-    result[i] *= suffix;
-    suffix *= nums[i];
+  while (fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next;
   }
 
-  return result;
+  slow.next = slow.next.next;
+
+  return dummy.next;
 };
 
-const nums = [1, 2, 3, 4];
+const head = new ListNode(1);
 
-console.log(productExceptSelf(nums));
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+head.next.next.next = new ListNode(4);
+head.next.next.next.next = new ListNode(5);
+
+const resultHead = removeNthFromEnd(head, 2);
+
+let current = resultHead;
+let result = [];
+
+while (current !== null) {
+  result.push(current.value);
+  current = current.next;
+}
+
+console.log(result);

@@ -1,48 +1,23 @@
-// 07. Remove Nth Node From End of List
+// 08. Find First and Last Position of Element in Sorted Array
 
-class ListNode {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+var searchRange = function (nums, target) {
+  let first = -1;
+  let last = -1;
 
-var removeNthFromEnd = function (head, n) {
-  const dummy = new ListNode(0);
-  dummy.next = head;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) {
+      if (first === -1) {
+        first = i;
+      }
 
-  let slow = dummy;
-  let fast = dummy;
-
-  for (let i = 0; i < n; i++) {
-    fast = fast.next;
+      last = i;
+    }
   }
 
-  while (fast.next !== null) {
-    slow = slow.next;
-    fast = fast.next;
-  }
-
-  slow.next = slow.next.next;
-
-  return dummy.next;
+  return [first, last];
 };
 
-const head = new ListNode(1);
+const nums = [5, 7, 7, 8, 8, 10];
+const target = 8;
 
-head.next = new ListNode(2);
-head.next.next = new ListNode(3);
-head.next.next.next = new ListNode(4);
-head.next.next.next.next = new ListNode(5);
-
-const resultHead = removeNthFromEnd(head, 2);
-
-let current = resultHead;
-let result = [];
-
-while (current !== null) {
-  result.push(current.value);
-  current = current.next;
-}
-
-console.log(result);
+console.log(searchRange(nums, target));

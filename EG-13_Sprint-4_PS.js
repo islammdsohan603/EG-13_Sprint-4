@@ -1,21 +1,43 @@
-// 03 Find the Difference
+// 04. Reverse Linked List
 
-var findTheDifference = function (s, t) {
-  const count = {};
+class ListNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
-  for (let char of s) {
-    count[char] = (count[char] || 0) + 1;
+var reverseList = function (head) {
+  let prev = null;
+  let current = head;
+
+  while (current !== null) {
+    let next = current.next;
+
+    current.next = prev;
+
+    prev = current;
+    current = next;
   }
 
-  for (let char of t) {
-    if (!count[char]) {
-      return char;
-    }
-
-    count[char]--;
-  }
-
-  return "";
+  return prev;
 };
 
-console.log(findTheDifference("abcd", "abcde"));
+const head = new ListNode(1);
+
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+head.next.next.next = new ListNode(4);
+head.next.next.next.next = new ListNode(5);
+
+const reversedHead = reverseList(head);
+
+let current = reversedHead;
+let result = [];
+
+while (current !== null) {
+  result.push(current.value);
+  current = current.next;
+}
+
+console.log(result);

@@ -1,23 +1,18 @@
-// 08. Find First and Last Position of Element in Sorted Array
+// 09. Permutation in String
 
-var searchRange = function (nums, target) {
-  let first = -1;
-  let last = -1;
+var checkInclusion = function (s1, s2) {
+  for (let i = 0; i <= s2.length - s1.length; i++) {
+    const part = s2.substring(i, i + s1.length);
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === target) {
-      if (first === -1) {
-        first = i;
-      }
-
-      last = i;
+    if (s1.split("").sort().join("") === part.split("").sort().join("")) {
+      return true;
     }
   }
 
-  return [first, last];
+  return false;
 };
 
-const nums = [5, 7, 7, 8, 8, 10];
-const target = 8;
+const s1 = "ab";
+const s2 = "eidbaooo";
 
-console.log(searchRange(nums, target));
+console.log(checkInclusion(s1, s2));

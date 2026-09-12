@@ -1,30 +1,32 @@
-// Isomporphic String
+// Word Pattern
 
-var isIsomorphic = function (s, t) {
-  if (s.length !== t.length) {
+var wordPattern = function (pattern, s) {
+  const words = s.split(" ");
+
+  if (pattern.length !== words.length) {
     return false;
   }
 
-  const mapST = {};
-  const mapTS = {};
+  const patternToWord = {};
+  const wordToPattern = {};
 
-  for (let i = 0; i < s.length; i++) {
-    const charS = s[i];
-    const charT = t[i];
+  for (let i = 0; i < pattern.length; i++) {
+    const char = pattern[i];
+    const word = words[i];
 
-    if (mapST[charS] && mapST[charS] !== charT) {
+    if (patternToWord[char] && patternToWord[char] !== word) {
       return false;
     }
 
-    if (mapTS[charT] && mapTS[charT] !== charS) {
+    if (wordToPattern[word] && wordToPattern[word] !== char) {
       return false;
     }
 
-    mapST[charS] = charT;
-    mapTS[charT] = charS;
+    patternToWord[char] = word;
+    wordToPattern[word] = char;
   }
 
   return true;
 };
 
-console.log(isIsomorphic("egg", "add"));
+console.log(wordPattern("abba", "dog cat cat dog"));

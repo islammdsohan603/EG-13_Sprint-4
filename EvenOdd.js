@@ -1,11 +1,10 @@
-// filter() ব্যবহার করে 18 বছরের বেশি বয়সী users বের
+// reduce() ব্যবহার করে shopping cart-এর total price বের
 
-const users = [
-  { name: "Sohan", age: 22 },
-  { name: "Rahim", age: 16 },
-  { name: "Karim", age: 25 },
-  { name: "Hasan", age: 17 },
+const cart = [
+  { name: "Laptop", price: 800 },
+  { name: "Mouse", price: 30 },
+  { name: "Keyboard", price: 50 },
 ];
 
-const adults = users.filter((ages) => ages.age >= 18);
-console.log(adults);
+const totalPrice = cart.reduce((total, indx) => total + indx.price, 0);
+console.log(totalPrice);

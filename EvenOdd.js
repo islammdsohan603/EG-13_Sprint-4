@@ -1,10 +1,10 @@
-// reduce() ব্যবহার করে shopping cart-এর total price বের
+// find() ব্যবহার করে নির্দিষ্ট id-এর user
 
-const cart = [
-  { name: "Laptop", price: 800 },
-  { name: "Mouse", price: 30 },
-  { name: "Keyboard", price: 50 },
+const users = [
+  { id: 1, name: "Sohan" },
+  { id: 2, name: "Rahim" },
+  { id: 3, name: "Karim" },
 ];
 
-const totalPrice = cart.reduce((total, indx) => total + indx.price, 0);
-console.log(totalPrice);
+const user = users.find((user) => user.id === 3);
+console.log(user);

@@ -1,9 +1,11 @@
-// Even and Odd Number of Array Method
+// filter() ব্যবহার করে 18 বছরের বেশি বয়সী users বের
 
-const numbers = [10, 2, 5, 9, 8, 7, 4, 6];
+const users = [
+  { name: "Sohan", age: 22 },
+  { name: "Rahim", age: 16 },
+  { name: "Karim", age: 25 },
+  { name: "Hasan", age: 17 },
+];
 
-const evenandodd = numbers
-  .filter((even) => even % 2 === 0)
-  .map((num) => num * 2);
-
-console.log(evenandodd);
+const adults = users.filter((ages) => ages.age >= 18);
+console.log(adults);

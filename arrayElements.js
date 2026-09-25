@@ -1,9 +1,6 @@
-const products = [
-  { name: "T-Shart", price: 2548 },
-  { name: "Pants", price: 1548 },
-  { name: "Cap", price: 890 },
-];
+// slice method
 
-const total = products.reduce((total, ind) => total + ind.price, 0);
+const numbers = [1, 2, 3, 4, 5];
 
-console.log(total);
+numbers.slice(1, 2);
+console.log(numbers);

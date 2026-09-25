@@ -1,24 +1,11 @@
-// 10. Find All Anagrams in a String
+const products = [
+  { id: 1, price: 5215, name: "Laptop" },
+  { id: 2, price: 515, name: "computer" },
+  { id: 3, price: 215, name: "microphone" },
+  { id: 4, price: 521, name: "ther" },
+];
 
-var findAnagrams = function (s, p) {
-  const result = [];
-
-  const sortedP = p.split("").sort().join("");
-
-  for (let i = 0; i <= s.length - p.length; i++) {
-    const part = s.substring(i, i + p.length);
-
-    const sortedPart = part.split("").sort().join("");
-
-    if (sortedPart === sortedP) {
-      result.push(i);
-    }
-  }
-
-  return result;
-};
-
-const s = "cbaebabacd";
-const p = "abc";
-
-console.log(findAnagrams(s, p));
+const totalPrice = products
+  .filter((prod) => prod.name === "Laptop")
+  .map((pricews) => pricews.price);
+console.log(totalPrice);

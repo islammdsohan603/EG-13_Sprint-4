@@ -1,8 +1,7 @@
-// concat() method
+// duplicate values remove in array
 
-const arr1 = [1, 2];
-const arr2 = [3, 4];
+const numbers = [1, 2, 2, 3, 4, 4, 5];
 
-const result = arr1.concat(arr2);
+const uniqueNumbers = [...new Set(numbers)];
 
-console.log(result);
+console.log(uniqueNumbers);

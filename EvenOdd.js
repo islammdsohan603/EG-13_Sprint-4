@@ -1,19 +1,19 @@
-// max and min number
+const products = [
+  { name: "iPhone", category: "phone" },
+  { name: "Samsung", category: "phone" },
+  { name: "MacBook", category: "laptop" },
+  { name: "Dell", category: "laptop" },
+];
 
-const numbers = [10, 5, 30, 2, 50];
+const grouped = products.reduce((acc, product) => {
+  const category = product.category;
 
-let maxNumber = numbers[0];
-let minNumber = numbers[0];
-
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] > maxNumber) {
-    maxNumber = numbers[i];
+  if (!acc[category]) {
+    acc[category] = [];
   }
 
-  if (numbers[i] < minNumber) {
-    minNumber = numbers[i];
-  }
-}
+  acc[category].push(product);
+  return acc;
+}, {});
 
-console.log(maxNumber);
-console.log(minNumber);
+console.log(grouped);

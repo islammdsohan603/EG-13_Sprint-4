@@ -1,7 +1,10 @@
-// duplicate values remove in array
+// value counts
+const fruits = ["apple", "banana", "apple", "mango", "banana", "apple"];
 
-const numbers = [1, 2, 2, 3, 4, 4, 5];
+const conut = fruits.reduce((acc, fruit) => {
+  acc[fruit] = (acc[fruit] || 0) + 1;
 
-const uniqueNumbers = [...new Set(numbers)];
+  return acc;
+}, {});
 
-console.log(uniqueNumbers);
+console.log(conut);

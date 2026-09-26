@@ -1,10 +1,19 @@
-// value counts
-const fruits = ["apple", "banana", "apple", "mango", "banana", "apple"];
+// max and min number
 
-const conut = fruits.reduce((acc, fruit) => {
-  acc[fruit] = (acc[fruit] || 0) + 1;
+const numbers = [10, 5, 30, 2, 50];
 
-  return acc;
-}, {});
+let maxNumber = numbers[0];
+let minNumber = numbers[0];
 
-console.log(conut);
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > maxNumber) {
+    maxNumber = numbers[i];
+  }
+
+  if (numbers[i] < minNumber) {
+    minNumber = numbers[i];
+  }
+}
+
+console.log(maxNumber);
+console.log(minNumber);

@@ -1,11 +1,9 @@
-const cart = [
-  { name: "Laptop", price: 800 },
-  { name: "Mouse", price: 100 },
-  { name: "Keyboard", price: 1100 },
+const users = [
+  { name: "Rahim", age: 17 },
+  { name: "Karim", age: 25 },
+  { name: "Hasan", age: 19 },
+  { name: "Sakib", age: 15 },
 ];
 
-const totalPrice = cart.reduce((total, indx) => {
-  return total + indx.price;
-}, 0);
-
-console.log(totalPrice);
+const agesUsers = users.filter((ages) => ages.age >= 18);
+console.log(agesUsers);

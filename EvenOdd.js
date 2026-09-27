@@ -1,19 +1,5 @@
-const products = [
-  { name: "iPhone", category: "phone" },
-  { name: "Samsung", category: "phone" },
-  { name: "MacBook", category: "laptop" },
-  { name: "Dell", category: "laptop" },
-];
+const numbers = [1, 2, 3, 4, 5];
 
-const grouped = products.reduce((acc, product) => {
-  const category = product.category;
+const squares = numbers.filter((num) => num % 2 === 0);
 
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-
-  acc[category].push(product);
-  return acc;
-}, {});
-
-console.log(grouped);
+console.log(squares);

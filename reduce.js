@@ -1,9 +1,16 @@
-const students = [
-  { name: "Rahim", marks: 80 },
-  { name: "Karim", marks: 45 },
-  { name: "Hasan", marks: 70 },
-  { name: "Sakib", marks: 30 },
+const employees = [
+  { name: "Rahim", salary: 30000 },
+  { name: "Karim", salary: 70000 },
+  { name: "Hasan", salary: 50000 },
+  { name: "Sakib", salary: 90000 },
 ];
 
-const marks = students.filter((mark) => mark.marks > 50).map((stu) => stu.name);
-console.log(marks);
+const highestSalary = employees.reduce((highest, emp) => {
+  if (emp.salary > highest.salary) {
+    return emp;
+  }
+
+  return highest;
+}, employees[0]);
+
+console.log(highestSalary);

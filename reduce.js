@@ -1,9 +1,15 @@
-const users = [
-  { name: "Rahim", age: 17 },
-  { name: "Karim", age: 25 },
-  { name: "Hasan", age: 19 },
-  { name: "Sakib", age: 15 },
+const products = [
+  { name: "Laptop", price: 800 },
+  { name: "Mouse", price: 100 },
+  { name: "Keyboard", price: 1100 },
+  { name: "Monitor", price: 300 },
+  { name: "Phone", price: 700 },
 ];
 
-const agesUsers = users.filter((ages) => ages.age >= 18);
-console.log(agesUsers);
+const totalPrice = products
+  .filter((total) => total.price > 500)
+  .reduce((totalPric, item) => {
+    return totalPric + item.price;
+  }, 0);
+
+console.log(totalPrice);
